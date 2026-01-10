@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Официальные правила | LiceyWorld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        /* Базовые стили */
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a1f2e;
+            --accent-purple: #8b5cf6;
+            --accent-purple-light: #a78bfa;
+            --accent-blue: #3b82f6;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --border-color: #2d3748;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+            --font-main: 'Inter', sans-serif;
+            --font-mc: 'Press Start 2P', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Навигация */
+        .nav {
+            background-color: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo i {
+            color: var(--accent-purple);
+            font-size: 2rem;
+        }
+
+        .logo h1 {
+            font-family: var(--font-mc);
+            font-size: 1.5rem;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-purple);
+            background-color: rgba(139, 92, 246, 0.1);
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        #theme-toggle:hover {
+            color: var(--accent-purple);
+            background-color: rgba(139, 92, 246, 0.1);
+        }
+
+        /* Герой-секция */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #1e1b4b 100%);
+            padding: 8rem 2rem 4rem;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%238b5cf6" opacity="0.05"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .mc-text {
+            font-family: var(--font-mc);
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat i {
+            color: var(--accent-purple);
+            font-size: 1.5rem;
+        }
+
+        .hero-icon {
+            font-size: 8rem;
+            color: var(--accent-purple);
+            opacity: 0.8;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-secondary);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Важное предупреждение */
+        .warning-card {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1));
+            border: 1px solid var(--warning);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+
+        .warning-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .warning-header i {
+            color: var(--warning);
+            font-size: 2rem;
+        }
+
+        .warning-header h3 {
+            color: var(--warning);
+            font-size: 1.5rem;
+        }
+
+        /* Навигация по разделам */
+        .section-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .section-btn {
+            padding: 1rem 2rem;
+            background-color: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-main);
+        }
+
+        .section-btn:hover {
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .section-btn.active {
+            background-color: var(--accent-purple);
+            color: white;
+            border-color: var(--accent-purple);
+        }
+
+        /* Секции правил */
+        .rules-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .rules-section.active {
+            display: block;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-purple);
+        }
+
+        .section-icon {
+            font-size: 3rem;
+            color: var(--accent-purple);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Карточки правил */
+        .rules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .rule-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent-purple);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .rule-card:hover::before {
+            opacity: 1;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent-purple);
+        }
+
+        .rule-important {
+            border: 2px solid var(--warning);
+        }
+
+        .rule-important::before {
+            background-color: var(--warning);
+        }
+
+        .rule-critical {
+            border: 2px solid var(--danger);
+        }
+
+        .rule-critical::before {
+            background-color: var(--danger);
+        }
+
+        .rule-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .rule-number {
+            background-color: var(--accent-purple);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .rule-header h3 {
+            flex: 1;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+        }
+
+        .penalty {
+            padding: 0.5rem 1rem;
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid var(--danger);
+        }
+
+        .rule-content {
+            color: var(--text-secondary);
+        }
+
+        .rule-content ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .rule-content li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .rule-content li::before {
+            content: '•';
+            color: var(--accent-purple);
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        .mods-list {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .note {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        /* Блок утверждения администратором */
+        .approval-section {
+            margin-top: 4rem;
+        }
+
+        .approval-card {
+            background: linear-gradient(135deg, var(--bg-card), #1e1b4b);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid var(--accent-purple);
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approval-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 60%, rgba(139, 92, 246, 0.1) 100%);
+            z-index: 0;
+        }
+
+        .admin-photo {
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .admin-photo img {
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            border: 3px solid var(--accent-purple);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+            object-fit: cover;
+        }
+
+        .approval-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .approval-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .approval-header i {
+            font-size: 2.5rem;
+            color: var(--accent-purple);
+        }
+
+        .approval-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .admin-signature {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .admin-name {
+            font-family: var(--font-mc);
+            font-size: 1.4rem;
+            color: var(--accent-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-title {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .approval-stamp {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, transparent 60%, var(--accent-purple) 60%);
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        /* Футер */
+        .footer {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo i {
+            color: var(--accent-purple);
+            font-size: 2rem;
+        }
+
+        .footer-note {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 2rem;
+            transition: var(--transition);
+            padding: 1rem;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-purple);
+            background-color: rgba(139, 92, 246, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .footer-links a i {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+            
+            .mc-text {
+                font-size: 1.8rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .approval-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 2rem;
+            }
+            
+            .admin-photo img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .approval-stamp {
+                display: none;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .footer-links a {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Стили для светлой темы */
+        .light-theme {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .light-theme .nav {
+            background-color: rgba(248, 250, 252, 0.95);
+        }
+        
+        .light-theme .hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+        }
+        
+        .light-theme .stat {
+            background-color: rgba(139, 92, 246, 0.05);
+        }
+        
+        .light-theme .footer-links a {
+            background-color: rgba(139, 92, 246, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <h1>LiceyWorld</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#main"><i class="fas fa-home"></i> Главная</a>
+                <a href="#rules"><i class="fas fa-book"></i> Правила</a>
+                <a href="#approval"><i class="fas fa-check-circle"></i> Утверждение</a>
+                <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2><span class="mc-text">Официальные правила сервера</span></h2>
+                <p class="subtitle">Соблюдение этих правил обеспечивает честную игру и комфорт для всех игроков LiceyWorld</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-file-alt"></i>
+                        <span>3 раздела</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-ban"></i>
+                        <span>37 конкретных правил</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Обновлено: 09.01.2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-icon">
+                <i class="fas fa-scroll"></i>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <main class="container" id="rules">
+        <!-- Важное предупреждение -->
+        <div class="warning-card">
+            <div class="warning-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Важное предупреждение</h3>
+            </div>
+            <p>Заходя на сервер LiceyWorld, вы автоматически соглашаетесь со всеми правилами, перечисленными ниже. Незнание правил не освобождает от ответственности. Администрация вправе применять наказания по своему усмотрению.</p>
+        </div>
+
+        <!-- Навигация по разделам -->
+        <div class="section-nav">
+            <button class="section-btn active" data-section="main-rules">Основное положение</button>
+            <button class="section-btn" data-section="chat-rules">Правила общения</button>
+            <button class="section-btn" data-section="gameplay-rules">Игровой процесс</button>
+        </div>
+
+        <!-- Контейнер для правил -->
+        <div class="rules-container">
+            <!-- Раздел 1: Основное положение -->
+            <section id="main-rules" class="rules-section active">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div>
+                        <h2 class="mc-text">1. Основное положение</h2>
+                        <p class="section-subtitle">Фундаментальные принципы сервера</p>
+                    </div>
+                </div>
+
+                <div class="rules-list">
+                    <!-- Правило 1.1 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.1</span>
+                            <h3>Согласие с правилами</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Любой человек, зарегистрировавшийся на проекте, соглашается со всеми правилами, перечисленными ниже. Незнание правил не освобождает пользователя от ответственности.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 1.2 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.2</span>
+                            <h3>Официальность правил</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Данный свод правил является официальным, никакие иные не имеют доказательной силы.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 1.3 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.3</span>
+                            <h3>Изменение правил</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Администрация вправе редактировать данный свод правил в любое время суток, не оповещая игроков.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 1.4 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.4</span>
+                            <h3>Право на наказание</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>За нарушение любого пункта данных правил персонал вправе выдать наказание.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 1.5 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.5</span>
+                            <h3>Всеобщность правил</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Правила касаются всех игроков проекта (в т. ч. и персонала).</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 1.6 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.6</span>
+                            <h3>Объяснение действий</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Администрация и персонал вправе не объяснять причину того или иного действия.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 1.7 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.7</span>
+                            <h3>Персонал сервера</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>К персоналу относятся: Модераторы (Moder) и Хелперы (Helper).</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 1.8 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.8</span>
+                            <h3>Администрация сервера</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>К Администрации относятся: Администраторы (Admin).</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 1.9 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">1.9</span>
+                            <h3>Принцип здравого смысла</h3>
+                            <span class="penalty"></span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Здравый смысл превыше любого правила. В случае если правила ему противоречат, решения основываются именно на нем.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Раздел 2: Правила общения -->
+            <section id="chat-rules" class="rules-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div>
+                        <h2 class="mc-text">2. Правила общения</h2>
+                        <p class="section-subtitle">Распространяются на локальный и глобальный чат, личные сообщения</p>
+                    </div>
+                </div>
+
+                <div class="rules-list">
+                    <!-- Правило 2.1 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.1</span>
+                            <h3>Запрещенные действия в чате</h3>
+                            <span class="penalty">Мут 1 час</span>
+                        </div>
+                        <div class="rule-content">
+                            <ul>
+                                <li>Отправлять от 3 однотипных сообщений в течение 1 минуты</li>
+                                <li>Флудить символами (от 10 символов)</li>
+                                <li>Организовывать флуд в чате (Пример: "Кто любит LiceyWorld, пишите +")</li>
+                                <li>Злоупотреблять Caps Lock в сообщениях (от 50% предложения из 3+ слов)</li>
+                                <li>Употреблять мат (в том числе завуалированный), нецензурную лексику</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.2 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.2</span>
+                            <h3>Оскорбления</h3>
+                            <span class="penalty">Мут 3 часа</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещено оскорблять кого-либо/что-либо:</p>
+                            <ul>
+                                <li>Умышленные оскорбления, а также сообщения, намеренно направленные на унижение игрока</li>
+                                <li>Грубые/многократные оскорбления невоодушевленных предметов наказуемы</li>
+                                <li>Завуалированные оскорбления также считаются нарушением</li>
+                                <li>Фразы по типу "иди н..!" считаются оскорблением, если выражены в матерной форме</li>
+                                <li>Если в сторону персонала - мут 1 день</li>
+                                <li>Если в сторону администрации - бан 7 дней, в сторону проекта - мут 7 дней</li>
+                                <li>Употребление матов /bc (объявлении) - мут на 2 дня</li>
+                                <li><em>Исключение: "Лёгкий, ez, -ez, Нуб, Лох, Лошара"</em></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.3 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.3</span>
+                            <h3>Оскорбление родных</h3>
+                            <span class="penalty">Мут 5 дней</span>
+                        </div>
+                        <div class="rule-content">
+                            <ul>
+                                <li>Упоминание не своих родных расценивается как оскорбление</li>
+                                <li>Срок зависит от тяжести нарушения</li>
+                                <li>Если в сторону администрации - бан 7 дней</li>
+                                <li>При обильном количестве оскорблений и/или угроз мут может достигать 15 дней</li>
+                                <li>Нарушение данного пункта в /bc - бан на 3 дня</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.4 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.4</span>
+                            <h3>Сообщения сексуального характера</h3>
+                            <span class="penalty">Мут 3 часа</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещены сообщения сексуального характера.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.5 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.5</span>
+                            <h3>Неадекватное поведение</h3>
+                            <span class="penalty">Мут 5 часов</span>
+                        </div>
+                        <div class="rule-content">
+                            <ul>
+                                <li>Фразы по типу "закрой е*ало!", выраженные в матерной форме</li>
+                                <li>Оскорбление Родины, пропаганда запрещенных веществ</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.6 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.6</span>
+                            <h3>Реклама</h3>
+                            <span class="penalty">Мут 1 день</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещена реклама любых серверов и сторонних ресурсов:</p>
+                            <ul>
+                                <li>Любое упоминание сервера/чита (даже в виде аббревиатуры) карается мутом на 1 день</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.7 -->
+                    <div class="rule-card rule-important">
+                        <div class="rule-header">
+                            <span class="rule-number">2.7</span>
+                            <h3>Пропаганда и разжигание ненависти</h3>
+                            <span class="penalty">Мут 10 часов</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещена пропаганда или агитация, возбуждающая социальную, половую, рассовую, национальную или религиозную ненависть и вражду:</p>
+                            <ul>
+                                <li>Запрещён нацизм, его символика и всё, что с ним связано</li>
+                                <li>Если сообщение содержит "Слава (страна(Кроме России))" - карается мутом</li>
+                                <li>Если сообщение содержит: "Н.гр, х.ч, х.х.л, ч.рка" - так же карается мутом</li>
+                                <li>Все, что касается религии (кроме праздников) также наказуемо в зависимости от контекста сообщения</li>
+                                <li>Запрещена политическая провокация, символика на флагах, щитах и скинах</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.8 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.8</span>
+                            <h3>Сторонние ссылки</h3>
+                            <span class="penalty">Мут 8 часов</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещено отправлять сообщения с наличием сторонних ссылок/рекламой стримов и видео:</p>
+                            <ul>
+                                <li><em>Исключение: официальные ресурсы LiceyWorld, ссылка на свою страницу ВК, на скриншот, на видео или стрим, записанным исключительно (!) на LiceyWorld</em></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.9 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.9</span>
+                            <h3>Выдача себя за администратора</h3>
+                            <span class="penalty">Мут 12 часов</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещена выдача себя за игрового администратора сервера.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.10 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.10</span>
+                            <h3>Угрозы</h3>
+                            <span class="penalty">Мут 1 день</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещены любые виды угроз.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.12 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.12</span>
+                            <h3>Обсуждение политики</h3>
+                            <span class="penalty">Мут 12 часов</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещено обсуждать политику.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 2.14 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">2.14</span>
+                            <h3>Попрошайничество</h3>
+                            <span class="penalty">Мут 6 часов</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещено попрошайничество ресурсов/привилегий/чего-либо у администрации или модерации:</p>
+                            <ul>
+                                <li><em>Исключение: попрошайничество у игроков</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Раздел 3: Игровой процесс -->
+            <section id="gameplay-rules" class="rules-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div>
+                        <h2 class="mc-text">3. Игровой процесс</h2>
+                        <p class="section-subtitle">Правила поведения в игровом мире</p>
+                    </div>
+                </div>
+
+                <div class="rules-list">
+                    <!-- Правило 3.1 -->
+                    <div class="rule-card rule-critical">
+                        <div class="rule-header">
+                            <span class="rule-number">3.1</span>
+                            <h3>Запрещенные никнеймы</h3>
+                            <span class="penalty">Бан навсегда</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещены никнеймы, содержащие слова, нарушающие другие пункты правил, оскорбительного/нецензурного характера, названия других проектов и читов. А также схожие никнеймы администрации.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 3.3 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">3.3</span>
+                            <h3>Торговля за реальные деньги</h3>
+                            <span class="penalty">Бан 30 дней</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещена любая торговля за реальные деньги.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 3.4 -->
+                    <div class="rule-card rule-critical">
+                        <div class="rule-header">
+                            <span class="rule-number">3.4</span>
+                            <h3>Передача аккаунта</h3>
+                            <span class="penalty">Бан без разбана</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещена любая (попытка) передача/продажа аккаунта.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 3.5 -->
+                    <div class="rule-card rule-critical">
+                        <div class="rule-header">
+                            <span class="rule-number">3.5</span>
+                            <h3>Взлом аккаунтов</h3>
+                            <span class="penalty">Бан навсегда</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещен взлом/попытка взлома чужих аккаунтов, а также привязка этих аккаунтов.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 3.6 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">3.6</span>
+                            <h3>Использование багов</h3>
+                            <span class="penalty">Бан 15 дней</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещено использование багов сервера, постройка лаг-машин, дюп вещей.</p>
+                        </div>
+                    </div>
+
+                    <!-- Правило 3.7 -->
+                    <div class="rule-card rule-critical">
+                        <div class="rule-header">
+                            <span class="rule-number">3.7</span>
+                            <h3>Стороннее ПО</h3>
+                            <span class="penalty">Бан 30 дней</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещено использование/хранение стороннего ПО:</p>
+                            <ul>
+                                <li>Чит-клиенты, чит-модификации, X-Ray в виде мода/ресурспака</li>
+                                <li>Макросы и скрипты, автоматизирующие сложные игровые процессы</li>
+                                <li>Боты/твинки, исполняющие функции чит-клиентов</li>
+                                <li>Моды, дающие явное преимущество перед другими игроками</li>
+                                <li>Запрещено использование любых модификаций клиента, дающих игроку преимущество, которое невозможно получить на ванильном клиенте</li>
+                            </ul>
+                            <div class="mods-list">
+                                <h4>Запрещенные моды:</h4>
+                                <div class="tags">
+                                    <span class="tag">Baritone</span>
+                                    <span class="tag">X-Ray</span>
+                                    <span class="tag">AimBot</span>
+                                    <span class="tag">FreeCam</span>
+                                    <span class="tag">ClickCrystals</span>
+                                    <span class="tag">AutoAttack</span>
+                                    <span class="tag">Cheat Engine</span>
+                                    <span class="tag">Player Highlighter</span>
+                                </div>
+                            </div>
+                            <div class="note">
+                                <p><strong>Примечание:</strong> Разрешены мини-карты с игроками, дамаг индикаторы. Запрещено использование кликеров в ПВП - бан на 7 дней.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правило 3.8 -->
+                    <div class="rule-card">
+                        <div class="rule-header">
+                            <span class="rule-number">3.8</span>
+                            <h3>Подстрекательство</h3>
+                            <span class="penalty">Бан 3 дня</span>
+                        </div>
+                        <div class="rule-content">
+                            <p>Запрещено подстрекательство игроков на нарушение правил.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Блок утверждения администратором -->
+        <section class="approval-section" id="approval">
+            <div class="approval-card">
+                <div class="admin-photo">
+                    <img src="https://via.placeholder.com/180x180/8b5cf6/ffffff?text=SalutPlay" alt="SalutPlay" id="admin-photo">
+                </div>
+                <div class="approval-content">
+                    <div class="approval-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Утверждено администратором</h3>
+                    </div>
+                    <p class="approval-text">
+                        Настоящие правила сервера LiceyWorld были тщательно разработаны и утверждены высшей администрацией проекта. 
+                        Каждое правило направлено на создание честной, безопасной и комфортной игровой среды для всех участников сообщества.
+                        Соблюдение этих норм является обязательным условием для игры на нашем сервере.
+                    </p>
+                    <div class="admin-signature">
+                        <div class="admin-name">SalutPlay</div>
+                        <div class="admin-title">ГЛАВНЫЙ АДМИНИСТРАТОР LICEYWORLD</div>
+                    </div>
+                    <div class="approval-stamp"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-cube"></i>
+                <h3>LiceyWorld</h3>
+            </div>
+            <p>© 2025-2026 Сервер LiceyWorld. Все права защищены.</p>
+            <p class="footer-note">Правила могут быть изменены в любое время без предварительного уведомления.</p>
+            <div class="footer-links">
+                <a href="https://t.me/LiceyWorldSupportBot" target="_blank" title="Телеграм-бот поддержки">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://t.me/LiceyWorld" target="_blank" title="Наш Telegram-канал">
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Переключение между разделами правил
+        document.addEventListener('DOMContentLoaded', function() {
+            const sectionBtns = document.querySelectorAll('.section-btn');
+            const ruleSections = document.querySelectorAll('.rules-section');
+            
+            sectionBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Удаляем активный класс у всех кнопок
+                    sectionBtns.forEach(b => b.classList.remove('active'));
+                    // Добавляем активный класс нажатой кнопке
+                    btn.classList.add('active');
+                    
+                    // Скрываем все секции
+                    ruleSections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Показываем нужную секцию
+                    const sectionId = btn.getAttribute('data-section');
+                    const activeSection = document.getElementById(sectionId);
+                    activeSection.classList.add('active');
+                    
+                    // Плавная прокрутка к началу секции
+                    activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
+            // Переключение темы
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const icon = themeToggle.querySelector('i');
+                if (document.body.classList.contains('light-theme')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+            
+            // Плавный скролл для навигации
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Анимация появления карточек при скролле
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за карточками правил
+            document.querySelectorAll('.rule-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Загрузка реального фото администратора
+            const adminPhoto = document.getElementById('admin-photo');
+            // Замените ссылку ниже на реальную ссылку на фото SalutPlay
+            const realPhotoUrl = 'salut.jpg'; // или полный URL
+            adminPhoto.src = realPhotoUrl;
+            adminPhoto.onerror = function() {
+                // Если фото не загрузилось, оставляем placeholder
+                this.src = 'https://via.placeholder.com/180x180/8b5cf6/ffffff?text=SalutPlay';
+            };
+        });
+    </script>
+</body>
+</html>
